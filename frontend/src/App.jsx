@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useAuth } from "react-oidc-context";
 import "./App.css";
 
-const apiInvokeUrl = "https://o4syaqmqz1.execute-api.us-east-1.amazonaws.com/Dev";
+const apiInvokeUrl = import.meta.env.VITE_API_URL;
 
 export default function App() {
   const auth = useAuth();
@@ -204,9 +204,8 @@ export default function App() {
 
           {uploadMessage && (
             <div
-              className={`upload-banner ${
-                uploadMessage.startsWith("Error") ? "error" : "success"
-              }`}
+              className={`upload-banner ${uploadMessage.startsWith("Error") ? "error" : "success"
+                }`}
             >
               {uploadMessage}
             </div>

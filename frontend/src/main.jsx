@@ -7,12 +7,12 @@ import "./index.css";
 import { AuthProvider } from "react-oidc-context";
 
 // === COGNITO DETAILS ===
-const userPoolId = "us-east-1_NEdC8Bsi0";
-const appClientId = "22q9r34l92vf998kbveaqpjeej";
-const cognitoRegion = "us-east-1";
+const userPoolId = import.meta.env.VITE_COGNITO_USER_POOL_ID;
+const appClientId = import.meta.env.VITE_COGNITO_CLIENT_ID;
+const cognitoRegion = import.meta.env.VITE_COGNITO_REGION;
 
 // ✅ This MUST be your domain prefix from Cognito > App Integration > Domain name
-const cognitoDomainPrefix = "us-east-1nedc8bsi0"; 
+const cognitoDomainPrefix = import.meta.env.VITE_COGNITO_DOMAIN_PREFIX;
 
 // ✅ No trailing slash
 const appBaseUrl = "http://localhost:5173";
@@ -26,7 +26,7 @@ const oidcConfig = {
   client_id: appClientId,
   redirect_uri: `${appBaseUrl}/`,
   response_type: "code",
-  scope: "openid email", 
+  scope: "openid email",
   loadUserInfo: true,
 
   // ✅ CORRECTED METADATA

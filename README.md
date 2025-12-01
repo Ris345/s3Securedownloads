@@ -39,12 +39,18 @@ Managing file access directly via S3 buckets can be complex and insecure if not 
    ```
 
 ### Configuration
-The application is currently configured to point to a specific AWS environment.
-- **API URL**: `https://o4syaqmqz1.execute-api.us-east-1.amazonaws.com/Dev`
-- **Cognito User Pool**: `us-east-1_NEdC8Bsi0`
-- **Client ID**: `22q9r34l92vf998kbveaqpjeej`
+1. Copy the example environment file:
+   ```bash
+   cp .env.example .env
+   ```
+2. Open `.env` and fill in your AWS configuration values:
+   - `VITE_API_URL`: Your API Gateway URL
+   - `VITE_COGNITO_USER_POOL_ID`: Your Cognito User Pool ID
+   - `VITE_COGNITO_CLIENT_ID`: Your Cognito Client ID
+   - `VITE_COGNITO_REGION`: Your AWS Region (e.g., us-east-1)
+   - `VITE_COGNITO_DOMAIN_PREFIX`: Your Cognito Domain Prefix
 
-*Note: These configurations are located in `src/App.jsx` and `src/main.jsx`.*
+*Note: The application uses `import.meta.env` to load these values.*
 
 ### Running the Application
 To start the development server:
